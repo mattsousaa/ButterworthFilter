@@ -4,7 +4,7 @@
 
 % Frequencia de passagem wp = 300 Hz 
 % Frequencia de rejeição ws = 750 Hz
-% Perda de amplitude na faixa de passagem = -0,2228 dB
+% Perda de amplitude na faixa de passagem = -0.2228 dB
 % Perda de amplitude na faixa de rejeição = -13.01 dB
 
 %|H(jw)| -> Achar função de transferência do filtro
