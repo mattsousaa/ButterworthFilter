@@ -7,9 +7,31 @@
 % Perda de amplitude na faixa de passagem = -0.2228 dB
 % Perda de amplitude na faixa de rejeição = -13.01 dB
 
+% Fases do projeto:
+% 0. Especificações
+% 1. Encontrar a ordem (N)
+% 2. Descobrir wc
+% 3. Montar a função H(s)
+% 4. Implementação
+
+% Ordem do filtro:
+% N = log(((2*epsilon - epsilon^2)*delta^2)/((1-epsilon)^2*(1-delta^2)))/(2*log(wp/ws))
+% Arredondar N para o inteiro mais próximo
+
+% Frequência de corte:
+% Faixa de Passagem: wc = wp/((2*epsilon - epsilon^2)/(1-epsilon)^2)^(1/(2*N))
+% Faixa de Rejeição: wc = ws/((1-delta^2)/delta^2)^(1/(2*N)) 
+% Fazer média entre os dois
+
+% Montar H(s)
+% H(s) = (wc^N)/Qn(s)
+% O polinômio Qn(s) depende da ordem e já se encontra tabelado
+
 %|H(jw)| -> Achar função de transferência do filtro
 
 % obtendo as especificações
+
+% Hz -> ciclos/seg -> 2*pi/s
 
 wp = 300*2*pi;                  % frequencia de passagem [rad/s]
 ws = 750*2*pi;                  % frequencia de rejeição [rad/s]
