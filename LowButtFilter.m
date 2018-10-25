@@ -14,8 +14,8 @@
 wp = 300*2*pi;                  % frequencia de passagem [rad/s]
 ws = 750*2*pi;                  % frequencia de rejeição [rad/s]
 
-epsilon = 1-10^(-0.2228/20);    % 20log(1-eps) = -0,2228 dB
-delta = 10^(-13.01/20);         % 20log(del) = -13,01 dB
+epsilon = 1-10^(-0.2228/20);    % 20log(1-eps) = -0.2228 dB
+delta = 10^(-13.01/20);         % 20log(del) = -13.01 dB
 
 % obtenção da ordem do filtro:
 N = log10 (((2*epsilon - epsilon^2)*delta^2)/((1-epsilon)^2*(1-delta^2)))/(2*log10(wp/ws));
