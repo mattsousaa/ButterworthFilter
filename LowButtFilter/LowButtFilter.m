@@ -57,7 +57,7 @@ Hs = tf(num, den);              % transformação (analógico -> digital)
 
 % discretização de Tustin (IIR)
 
-filename = 'big-ben-strikes-12-good-quality-sound.wav';
+filename = 'The Less I Know The Better - Tame Impala Lyrics.wav';
 [som, freq] = audioread (filename);  % obtem arquivo e freq. do audio
 
 Ts = 1/freq;                    % definição do período 
@@ -69,4 +69,24 @@ IIR = c2d(Hs, Ts, 'tustin');    % aproximação de Tustin
 
 somlowpass = filter(IIRnum, IIRden, som); % aplica o filtro
 
-audiowrite('result.wav', somlowpass, freq); % gera o audio filtrado
+audiowrite('impalalow.wav', somlowpass, freq); % gera o audio filtrado
+
+filter_signal = audioread('impalalow.wav');
+
+f_s = 11025;                    % frequencia de amostragem
+
+[wave,f_s]=audioread('The Less I Know The Better - Tame Impala Lyrics.wav'); 
+
+signal1 = audioread('The Less I Know The Better - Tame Impala Lyrics.wav');
+
+signal2 = audioread('impalalow.wav');
+
+%sound(wave,fs); 
+
+t=0:1/f_s:(length(wave)-1)/f_s;
+
+plot(t,wave);                   % plot do sinal original no domínio do tempo
+
+my_fft(signal1, f_s);         % plot do sinal original
+
+my_fft(signal2, f_s);         % plot do sinal filtrado
