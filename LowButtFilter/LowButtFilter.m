@@ -49,9 +49,9 @@ wcp = wp/((2*epsilon - epsilon^2)/(1-epsilon)^2)^(1/(2*N));
 wcs = ws/((1-delta^2)/delta^2)^(1/(2*N));
 wc = (wcp + wcs)/2;             % media entre os dois
 
-% função de transferência do filtro de Butterworth ordem 4
+% função de transferência do filtro de Butterworth ordem N
 
-num = wc^4;                     % criação de um numerador
+num = wc^N;                     % criação de um numerador
 den = [1 2.6131*wc 3.4142*wc^2 2.6131*wc^3 wc^4]; % criação de um denominador
 Hs = tf(num, den);              % transformação (analógico -> digital)
 
